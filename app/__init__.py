@@ -51,6 +51,6 @@ def create_app(config_name):
 
     # Setting config when using an API
     # from .requests import configure_request
-    configure_request(app)
+    #configure_request(app)
 
     return app
