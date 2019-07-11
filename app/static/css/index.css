@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Eater');
+
+.header{
+    height:100vh;
+    margin-top:-1.5%;
+}
+.intro{
+    position:absolute;
+    top:35%;
+    left:25%;
+    right:25%;
+    text-align: center;
+    font-family: cursive;
+    font-size:150%;
+    text-align:center;
+}
+button{
+    color:white;
+    background-color:#AA076B;
+    border:0%;
+    border-radius:99em;
+}
+.dropdown-item:hover{
+    color:black !important;
+}
+#jk{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+footer {
+    font-size: 17px;
+   
+  
+    
+    
+}
