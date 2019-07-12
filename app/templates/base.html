@@ -9,7 +9,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/index.css">
   
 {% endblock %}
 
@@ -47,7 +48,7 @@
       <div class="col-md-4 mx-auto">
 
         <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">BookReview</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" href="/">BookReview</h5>
         <p>Here you can read and review books.</p>
 
       </div>
@@ -63,10 +64,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Novels</a>
+            <a href="/novels">Novels</a>
           </li>
           <li>
-            <a href="#!">Comics</a>
+            <a href="/comic">Comics</a>
           </li>
           <li>
             <a href="#!">Home</a>
@@ -87,13 +88,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Health & Fitness</a>
+            <a href="/health">Health & Fitness</a>
           </li>
           <li>
-            <a href="#!">Spiritual</a>
+            <a href="/spiritual">Spiritual</a>
           </li>
           <li>
-            <a href="#!">About</a>
+            <a href="/aboutus">About</a>
           </li>
          
         </ul>
@@ -111,10 +112,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Motivational</a>
+            <a href="/motivation">Motivational</a>
           </li>
           <li>
-            <a href="#!">Fashion & Entertainment</a>
+            <a href="/fashionentertainment">Fashion & Entertainment</a>
           </li>
         
          
@@ -134,10 +135,10 @@
   <!-- Call to action -->
   <ul class="list-unstyled list-inline text-center py-2">
     <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
+      <h5 class="mb-1">Subscribe for free</h5>
     </li>
     <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+      <a href="{{url_for('auth.register')}}" class="btn btn-info btn-rounded">Sign up!</a>
     </li>
   </ul>
   <!-- Call to action -->
@@ -176,7 +177,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> BookReview</a>
+    <a href="/"> BookReview</a>
   </div>
   <!-- Copyright -->
 

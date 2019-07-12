@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from time import time
 import jwt
 import os
+from datetime import datetime
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -17,7 +18,10 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True, index = True)
     profile_pic_path = db.Column(db.String(255))
     bio = db.Column(db.String(255))
-
+    location = db.Column(db.String(255))
+    preferences = db.Column(db.String(255))
+    photos = db.relationship('PhotoProfile',backref = 'user',lazy = "dynamic")
+    reviews = db.relationship('Review',backref = 'user',lazy = "dynamic")
   
 
     @property
@@ -47,4 +51,34 @@ class User(UserMixin,db.Model):
     
     def __repr__(self):
         return f'User {self.username}'
+class PhotoProfile(db.Model):
+    __tablename__ = 'profile_photos'
 
+    id = db.Column(db.Integer,primary_key = True)
+    pic_path = db.Column(db.String())
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
+class Review(db.Model):
+
+    __tablename__ = 'reviews'
+    id = db.Column(db.Integer,primary_key = True)
+    book_id = db.Column(db.Integer)
+    book_title = db.Column(db.String)
+    book_path = db.Column(db.String)
+    book_review = db.Column(db.String)
+    posted = db.Column(db.Time,default=datetime.utcnow())
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
+
+
+    def save_review(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+
+    @classmethod
+    def get_reviews(cls,id):
+
+        reviews = Review.query.filter_by(book_id=id).all()
+        return reviews

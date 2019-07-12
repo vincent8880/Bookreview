@@ -29,9 +29,8 @@ button{
     object-fit: cover;
 }
 footer {
-    font-size: 17px;
-   
-  
-    
-    
+    font-size: 17px;  
+}
+body{
+    font-family: 'Libre Baskerville', serif;
 }

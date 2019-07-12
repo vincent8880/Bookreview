@@ -3,7 +3,7 @@
 <!-- Content block -->
 {% block content %}
 
-
+<body>
 <div class="header">
 <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
         <!--Indicators-->
@@ -22,10 +22,13 @@
             </div>
            
             <div class="intro">
-
+                {% if current_user.is_authenticated%}
                     <h1 style="color: antiquewhite;text-align: center;" class="display-4">WELCOME!YOU CAN NOW READ AND REVIEW BOOKS..</h1>
+                    {% else%}
+                    <h1 style="color: antiquewhite;text-align: center;" class="display-4">WHAT'S YOUR FAVOURITE BOOK COLLECTION?</h1>
                     <h1 style="color: antiquewhite;text-align: center;" class="display-4">SIGN UP NOW!!</h1>
                     <a href="{{url_for('auth.register')}}" type="button" class="btn btn-info " style="width:150px;font-size: 17px;" >SIGN UP</a>
+                    {% endif%}
                 </div>
           </div>
           <div class="carousel-item">
@@ -36,9 +39,13 @@
             </div>
             <div class="intro">
                     
-                    <h1 style="color: antiquewhite;text-align: center;" class="display-4">WELCOME!YOU CAN NOW READ BOOKS..</h1>
-                    <h1 style="color: antiquewhite;text-align: center;" class="display-4">SIGN UP NOW!!</h1>
-                    <a href="{{url_for('auth.register')}}" type="button" class="btn btn-info " style="width:150px;font-size: 17px;">SIGN UP</a>
+                {% if current_user.is_authenticated%}
+                <h1 style="color: antiquewhite;text-align: center;" class="display-4">WELCOME!YOU CAN NOW READ AND REVIEW BOOKS..</h1>
+                {% else%}
+                <h1 style="color: antiquewhite;text-align: center;" class="display-4">WHAT'S YOUR FAVOURITE BOOK COLLECTION?</h1>
+                <h1 style="color: antiquewhite;text-align: center;" class="display-4">SIGN UP NOW!!</h1>
+                <a href="{{url_for('auth.register')}}" type="button" class="btn btn-info " style="width:150px;font-size: 17px;" >SIGN UP</a>
+                {% endif%}
                 </div>
           </div>
           <div class="carousel-item">
@@ -49,14 +56,17 @@
             </div>
             <div class="intro">
                     
-                    <h1 style="color: antiquewhite;text-align: center;" class="display-4">WELCOME!YOU CAN NOW READ BOOKS..</h1>
-                    <h1 style="color: antiquewhite;text-align: center;" class="display-4">SIGN UP NOW!!</h1>
-                    <a href="{{url_for('auth.register')}}" type="button" class="btn btn-info " style="width:150px;font-size: 17px;">SIGN UP</a>
+                {% if current_user.is_authenticated%}
+                <h1 style="color: antiquewhite;text-align: center;" class="display-4">WELCOME!YOU CAN NOW READ AND REVIEW BOOKS..</h1>
+                {% else%}
+                <h1 style="color: antiquewhite;text-align: center;" class="display-4">WHAT'S YOUR FAVOURITE BOOK COLLECTION?</h1>
+                <h1 style="color: antiquewhite;text-align: center;" class="display-4">SIGN UP NOW!!</h1>
+                <a href="{{url_for('auth.register')}}" type="button" class="btn btn-info " style="width:150px;font-size: 17px;" >SIGN UP</a>
+                {% endif%}
                 </div>
           </div>
         </div>
     </div>
-<br>
 <h1 style="text-align: center;">BOOKS</h1>
 <br>
 <div  class="novels">
@@ -65,12 +75,12 @@
         <div class="">
             <h1 style="text-align: center;">NOVELS</h1>
             <div class="card ml-4 mt-4"  style="width: 40rem;" >
-                <div class="view overlay">
+                <div class="view overlay zoom">
                     <img style="margin-left: auto; margin-right: auto;" height="270px" src="/static/images/b1.jpeg" alt="Card image cap">
                 </div>
                 <div  style="font-size: 11px; text-align:center;" class="card-body">
                     
-                    <a href="/" style="font-size: 11px; text-align:center;" class="btn btn-info "  style="width:150px;">VIEW MORE</a>
+                    <a href="/novels" style="font-size: 11px; text-align:center;" class="btn btn-info "  style="width:150px;">VIEW MORE</a>
                     
                 </div>
             </div>
@@ -78,12 +88,12 @@
         <div class="">
             <h1 style="text-align: center;">HEALTH & FITNESS</h1>
             <div class="card ml-4 mt-4" style="width: 40rem;">
-                <div class="view overlay">
+                <div class="view overlay zoom">
                     <img style="margin-left: auto; margin-right: auto;" height="270px" src="/static/images/b2.jpg"alt="Card image cap">
                 </div>
                 <div  style="font-size: 11px; text-align:center;" class="card-body">
                     
-                    <a href="/" style="font-size: 11px; text-align:center;" class="btn btn-info "  style="width:150px;">VIEW MORE</a>
+                    <a href="/health" style="font-size: 11px; text-align:center;" class="btn btn-info "  style="width:150px;">VIEW MORE</a>
                     
                 </div>
             </div>
@@ -91,12 +101,12 @@
         <div class="">
             <h1 style="text-align: center;">COMICS</h1>
             <div class="card ml-4 mt-4" style="width: 40rem;">
-                <div class="view overlay">
+                <div class="view overlay zoom">
                     <img style="margin-left: auto; margin-right: auto;" height="270px" src="/static/images/b3.jpg" alt="Card image cap">
                 </div>
                 <div style="font-size: 11px; text-align:center;" class="card-body">
                     
-                    <a href="/" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
+                    <a href="/comic" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
                     
                 </div>
             </div>
@@ -110,12 +120,12 @@
         <div class="">
             <h1 style="text-align: center;">MOTIVATIONAL</h1>
             <div class="card ml-4 mt-4" style="width: 40rem;">
-                <div class="view overlay">
+                <div class="view overlay zoom">
                     <img style="margin-left: auto; margin-right: auto;" height="270px" src="/static/images/b6.jpg" alt="Card image cap">
                 </div>
                 <div  style="font-size: 11px; text-align:center;" class="card-body">
                     
-                    <a href="/" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
+                    <a href="/motivation" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
                     
                 </div>
             </div>
@@ -123,12 +133,12 @@
         <div class="">
             <h1 style="text-align: center;">SPIRITUAL</h1>
             <div class="card ml-4 mt-4" style="width: 40rem;">
-                <div class="view overlay">
-                    <img style="margin-left: auto; margin-right: auto;" height="270px" src="/static/images/b4.jpg" alt="Card image cap">
+                <div class="view overlay zoom">
+                    <img style="margin-left: auto; margin-right: auto;" height="270px" src="/static/images/b5.jpg" alt="Card image cap">
                 </div>
                 <div  style="font-size: 11px; text-align:center;" class="card-body">
                     
-                    <a href="/" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
+                    <a href="/spiritual" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
                     
                 </div>
             </div>
@@ -136,12 +146,12 @@
         <div class="">
             <h1 style="text-align: center;">FASHION & ENTERTAINMENT</h1>
             <div class="card ml-4 mt-4" style="width: 40rem;">
-                <div class="view overlay">
+                <div class="view overlay zoom">
                     <img style="margin-left: auto; margin-right: auto;" height="270px" src="/static/images/b7.jpg" alt="Card image cap">
                 </div>
                 <div  style="font-size: 11px; text-align:center;" class="card-body">
                     
-                    <a href="/" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
+                    <a href="/fashionentertainment" style="font-size: 11px; text-align:center;"  class="btn btn-info "  style="width:150px;">VIEW MORE</a>
                     
                 </div>
             </div>
@@ -149,15 +159,13 @@
     </div>
  </div>
 </div>
-<br>
-
 <!-- Card -->
 <div style="background-image: url(static/images/b4.jpg); background-size: cover;background-repeat: no-repeat;width:100%; " class="container-fluid">
  <div class ="row">
         <div class="col-md-4">
                 <div style="width: 300px;">
                         <!-- Avatar -->
-                        <div class="avatar">
+                        <div class="avatar; view overlay zoom">
                           <img id="jk" src="static/images/i3.jpg"  class="rounded-circle" alt="woman avatar">
                         </div>
                         <!-- Content -->
@@ -175,7 +183,7 @@
 <div  class="col-md-4">
 <div style="width: 300px;">
         <!-- Avatar -->
-        <div class="avatar">
+        <div class="avatar; view overlay zoom">
           <img id="jk"src="static/images/i.jpg" class="rounded-circle" alt="woman avatar">
         </div>
         <!-- Content -->
@@ -192,7 +200,7 @@
 
             <div style="width: 300px;">
                     <!-- Avatar -->
-                    <div class="avatar">
+                    <div class="avatar; view overlay zoom">
                       <img id="jk"src="static/images/i2.jpg" class="rounded-circle" alt="woman avatar">
                     </div>
                     <!-- Content -->
@@ -207,7 +215,9 @@
                 </div>
 </div>
 </div>
+
 {%block footer%}
 {{super()}}
 {%endblock%}
+</body>
 {% endblock %}
